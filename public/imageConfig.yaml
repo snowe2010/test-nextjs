@@ -1,0 +1,50 @@
+# public/imageConfig.yaml
+images:
+  - src: /denmark.jpg
+    alt: Denmark Bollard
+    name: Denmark
+    colors:
+      - red
+      - yellow
+      - white
+  - src: /italy.jpg
+    alt: Italy
+    name: italy
+    colors: 
+      - red
+      - white
+      - green
+  - src: /france.jpg
+    alt: France
+    name: france
+    colors:
+      - blue
+      - white
+      - red
+  - src: /britain.jpg
+    alt: Britain
+    name: britain
+    colors:
+      - red
+      - white
+      - blue
+  - src: /germany.jpg
+    alt: Germany
+    name: germany
+    colors:
+      - black
+      - red
+      - yellow
+  - src: /poland.jpg
+    alt: Poland
+    name: poland
+    colors:
+      - white
+      - red
+  - src: /croatia.jpg
+    alt: Croatia
+    name: croatia
+    colors:
+      - red
+      - white
+      - blue
