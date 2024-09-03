@@ -16,12 +16,12 @@ export default function Home() {
   const filters = ['black', 'red', 'white', 'blue', 'yellow']
   
   const images: ImageType[] = [
-    { src: 'public/bollard_314.jpg', alt: 'Italy', name: 'italy', colors: ['red', 'white', 'green'] },
-    { src: 'public/bollard_314.jpg', alt: 'France', name: 'france', colors: ['blue', 'white', 'red'] },
-    { src: 'public/bollard_314.jpg', alt: 'Britain', name: 'britain', colors: ['red', 'white', 'blue'] },
-    { src: 'public/bollard_314.jpg', alt: 'Germany', name: 'germany', colors: ['black', 'red', 'yellow'] },
-    { src: 'public/bollard_314.jpg', alt: 'Poland', name: 'poland', colors: ['white', 'red'] },
-    { src: 'public/bollard_314.jpg', alt: 'Croatia', name: 'croatia', colors: ['red', 'white', 'blue'] },
+    { src: 'bollard_314.jpg', alt: 'Italy', name: 'italy', colors: ['red', 'white', 'green'] },
+    { src: 'bollard_314.jpg', alt: 'France', name: 'france', colors: ['blue', 'white', 'red'] },
+    { src: 'bollard_314.jpg', alt: 'Britain', name: 'britain', colors: ['red', 'white', 'blue'] },
+    { src: 'bollard_314.jpg', alt: 'Germany', name: 'germany', colors: ['black', 'red', 'yellow'] },
+    { src: 'bollard_314.jpg', alt: 'Poland', name: 'poland', colors: ['white', 'red'] },
+    { src: 'bollard_314.jpg', alt: 'Croatia', name: 'croatia', colors: ['red', 'white', 'blue'] },
   ]
 
   const handleFilterChange = (filter: string) => {
