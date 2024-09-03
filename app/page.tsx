@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useState, useMemo } from 'react'
-import Image from 'next/image'
+import React, { useState, useMemo, useEffect } from 'react'
+import yaml from 'js-yaml'
 
 type ImageType = {
   src: string;
@@ -10,19 +10,32 @@ type ImageType = {
   colors: string[];
 };
 
-export default function Home() {
+export default function Component() {
+  const [images, setImages] = useState<ImageType[]>([])
   const [selectedFilters, setSelectedFilters] = useState<string[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
-  const filters = ['black', 'red', 'white', 'blue', 'yellow']
-  
-  const images: ImageType[] = [
-    { src: '/bollard_314.jpg', alt: 'Italy', name: 'italy', colors: ['red', 'white', 'green'] },
-    { src: '/bollard_314.jpg', alt: 'France', name: 'france', colors: ['blue', 'white', 'red'] },
-    { src: '/bollard_314.jpg', alt: 'Britain', name: 'britain', colors: ['red', 'white', 'blue'] },
-    { src: '/bollard_314.jpg', alt: 'Germany', name: 'germany', colors: ['black', 'red', 'yellow'] },
-    { src: '/bollard_314.jpg', alt: 'Poland', name: 'poland', colors: ['white', 'red'] },
-    { src: '/bollard_314.jpg', alt: 'Croatia', name: 'croatia', colors: ['red', 'white', 'blue'] },
-  ]
+  useEffect(() => {
+    async function loadConfig() {
+      try {
+        const response = await fetch('/test-nextjs/imageConfig.yaml')
+        const yamlText = await response.text()
+        const config = yaml.load(yamlText) as { images: ImageType[] }
+        setImages(config.images)
+        setIsLoading(false)
+      } catch (error) {
+        console.error('Failed to load configuration:', error)
+        setIsLoading(false)
+      }
+    }
+
+    loadConfig()
+  }, [])
+
+  const filters = useMemo(() => {
+    const allColors = images.flatMap(img => img.colors)
+    return Array.from(new Set(allColors)).sort()
+  }, [images])
 
   const handleFilterChange = (filter: string) => {
     setSelectedFilters(prev =>
@@ -33,11 +46,15 @@ export default function Home() {
   }
 
   const filteredImages = useMemo(() => {
-    if (selectedFilters.length === 0) return images;
+    if (selectedFilters.length === 0) return images
     return images.filter(image => 
       selectedFilters.every(filter => image.colors.includes(filter))
-    );
-  }, [selectedFilters, images]);
+    )
+  }, [selectedFilters, images])
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div className="container mx-auto p-4">
@@ -64,20 +81,25 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {filteredImages.map((image, index) => (
               <div key={index} className="border rounded-lg overflow-hidden">
-                <Image
-                  src={image.src}
+                <img
+                  src={"bollards" + image.src}
                   alt={image.alt}
-                  width={300}
-                  height={200}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-2 text-center">
                   <p className="font-semibold">{image.name}</p>
+                  <p className="text-sm text-gray-500">Colors: {image.colors.join(', ')}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
+      </div>
+      <div className="mt-8">
+        <h2 className="text-xl font-semibold mb-2">Debugging Information:</h2>
+        <p>Number of images: {images.length}</p>
+        <p>Number of filtered images: {filteredImages.length}</p>
+        <p>Selected filters: {selectedFilters.join(', ') || 'None'}</p>
       </div>
     </div>
   )
