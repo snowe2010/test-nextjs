@@ -1,6 +1,6 @@
 # public/imageConfig.yaml
 images:
-  - src: /bollards/denmark.jpg
+  - src: /denmark.jpg
     alt: Denmark Bollard
     name: Denmark
     colors:
