@@ -3,27 +3,31 @@ images:
   - src: /denmark.png
     alt: Denmark Bollard
     name: Denmark
+    continent: Europe
     colors:
       - red
       - yellow
       - white
-  - src: /italy.jpg
-    alt: Italy
-    name: italy
+  - src: /italy-front-1.png
+    alt: Italy Front
+    name: Italy Front
+    continent: Europe
     colors: 
       - red
+      - black
+      - gray
+  - src: /italy-back-1.png
+    alt: Italy Back
+    name: Italy Back
+    continent: Europe
+    colors: 
+      - black
       - white
-      - green
-  - src: /france.jpg
-    alt: France
-    name: france
-    colors:
-      - blue
-      - white
-      - red
+      - gray
   - src: /britain.jpg
     alt: Britain
     name: britain
+    continent: Europe
     colors:
       - red
       - white
@@ -31,6 +35,7 @@ images:
   - src: /germany.jpg
     alt: Germany
     name: germany
+    continent: Europe
     colors:
       - black
       - red

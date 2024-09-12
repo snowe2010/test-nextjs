@@ -2,12 +2,14 @@
 
 import React, { useState, useMemo, useEffect } from 'react'
 import yaml from 'js-yaml'
+import './global.css'
 
 type ImageType = {
   src: string;
   alt: string;
   name: string;
   colors: string[];
+  continent: string;
 };
 
 export default function Component() {
@@ -53,14 +55,14 @@ export default function Component() {
   }, [selectedFilters, images])
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div className="flex justify-center items-center h-screen">Loading...</div>
   }
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Geoguessr Bollard Findr</h1>
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-1/4">
+      <h1 className="text-3xl font-bold mb-6 text-center">Geoguessr Bollard Findr</h1>
+      <div className="flex flex-col lg:flex-row gap-8">
+        <div className="w-full lg:w-1/4 bg-gray-100 p-4 rounded-lg">
           <h2 className="text-2xl font-semibold mb-4">Filter</h2>
           <div className="space-y-2">
             {filters.map(filter => (
@@ -77,14 +79,14 @@ export default function Component() {
             ))}
           </div>
         </div>
-        <div className="w-full md:w-3/4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="w-full lg:w-3/4 bg-white p-4 rounded-lg shadow-md">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredImages.map((image, index) => (
-              <div key={index} className="border rounded-lg overflow-hidden">
+              <div key={index} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
                 <img
                   src={"bollards" + image.src}
                   alt={image.alt}
-                  className="w-full h-48 object-cover"
+                  className="w-fit mx-auto h-48 object-cover"
                 />
                 <div className="p-2 text-center">
                   <p className="font-semibold">{image.name}</p>
@@ -95,7 +97,7 @@ export default function Component() {
           </div>
         </div>
       </div>
-      <div className="mt-8">
+      <div className="mt-8 bg-gray-100 p-4 rounded-lg">
         <h2 className="text-xl font-semibold mb-2">Debugging Information:</h2>
         <p>Number of images: {images.length}</p>
         <p>Number of filtered images: {filteredImages.length}</p>
