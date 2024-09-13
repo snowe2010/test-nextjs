@@ -27,6 +27,8 @@ images:
       - red
       - black
       - gray
+    side:
+      - front
   - src: /italy-back-1.png
     alt: Italy Back
     name: Italy Back
@@ -35,6 +37,8 @@ images:
       - black
       - white
       - gray
+    side:
+      - back
   - src: /australia-front-1.png
     alt: Australia Front
     name: Australia Front
@@ -42,6 +46,8 @@ images:
     colors: 
       - red
       - white
+    side:
+      - front
   - src: /australia-back-1.png
     alt: Australia Back
     name: Australia Back
@@ -49,3 +55,5 @@ images:
     colors:
       - white
       - gray
+    side:
+      - back
