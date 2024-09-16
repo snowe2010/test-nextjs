@@ -8,6 +8,17 @@ images:
       - red
       - yellow
       - white
+    side:
+      - front
+  - src: /denmark-back-1.png
+    alt: Denmark Bollard
+    name: Denmark
+    continent: Europe
+    colors:
+      - red
+      - white
+    side:
+      - back
   - src: /italy-front-1.png
     alt: Italy Front
     name: Italy Front
@@ -16,6 +27,8 @@ images:
       - red
       - black
       - gray
+    side:
+      - front
   - src: /italy-back-1.png
     alt: Italy Back
     name: Italy Back
@@ -24,32 +37,43 @@ images:
       - black
       - white
       - gray
-  - src: /britain.jpg
-    alt: Britain
-    name: britain
-    continent: Europe
-    colors:
+    side:
+      - back
+  - src: /australia-front-1.png
+    alt: Australia Front
+    name: Australia Front
+    continent: Oceania
+    colors: 
       - red
       - white
-      - blue
-  - src: /germany.jpg
-    alt: Germany
-    name: germany
-    continent: Europe
+    side:
+      - front
+  - src: /australia-back-1.png
+    alt: Australia Back
+    name: Australia Back
+    continent: Oceania
     colors:
-      - black
-      - red
+      - white
+      - gray
+    side:
+      - back
+
+  - src: /spain-front-1.png
+    alt: Spain Front
+    name: Spain Front
+    continent: Europe
+    colors: 
       - yellow
-  - src: /poland.jpg
-    alt: Poland
-    name: poland
+      - white
+      - black
+    side:
+      - front
+  - src: /spain-back-1.png
+    alt: Spain Back
+    name: Spain Back
+    continent: Europe
     colors:
       - white
-      - red
-  - src: /croatia.jpg
-    alt: Croatia
-    name: croatia
-    colors:
-      - red
-      - white
-      - blue
+      - black
+    side:
+      - back
